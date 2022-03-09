@@ -1,0 +1,276 @@
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100vh;
+    background-color: #000;
+}
+.container{
+    display: grid;
+justify-content:center ;
+height: 100vh;
+}
+
+h1 {
+   text-align: center;
+   color : #fff;
+   font-size: 2.7rem;
+}
+
+img{
+    object-fit: cover;
+}
+
+.screen{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: aqua;
+    z-index: 100;
+    font-size: 5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.screen.visible{
+    display: flex;
+    flex-direction: column;
+    
+}
+.win-screen.freeze{
+    pointer-events: none;
+}
+.lose-screen.freeze{
+    pointer-events: none;
+}
+
+.play-again {
+    margin-top: 3vh;
+    font-size: 3rem;
+}
+
+.play-again.hidden {
+    display: none;
+}
+
+.game-container{
+    background-color: #000;
+    width: 420px;
+    height: 670px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.char-pic{
+    background-color:#fff;
+    width: 310px;
+    height: 450px;
+    position: relative;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(9,auto);
+    gap:.5px;
+    position: absolute;
+    top: 0;
+}
+
+.squre{
+    background-color:rgba(10, 96, 245,1);
+    width: 34px;
+    height: 35px;
+  
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+        transform: rotate(0deg);
+        /* opacity: 1; */
+      }
+      50%{
+        transform: scale(1.7);
+        transform: rotate(90deg);
+      }
+      100% {
+        transform: scale(0);
+        transform: rotate(190deg);
+        /* opacity: 1; */
+      }
+    
+}
+
+.squre:hover {
+    background-color:rgba(9, 72, 180,1);
+    
+ 
+}
+.squre.hidden {
+    background-color:rgba(9, 72, 180,0); 
+    pointer-events: none;
+    animation: scale 700ms linear forwards;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* position: absolute; */
+}
+
+.char-box{
+    margin: 3vh 0;
+    display: flex;
+    /* grid-template-columns: repeat(3,auto); */
+    justify-content: space-around;
+    /* align-items: center; */
+    gap: 10px;
+}
+
+.char-name {
+    /* padding: 10px; */
+    width: 98px;
+    height:44px;
+    /* padding: .3vh; */
+    text-align: center;
+    background-color: rgb(46, 117, 223);
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}
+
+.char-name:hover{
+    background-color: rgb(163, 200, 255);
+}
+
+@keyframes success {
+    0% ,100%{
+        background-color: aqua;
+    }
+    25%{
+        background-color: rgb(67, 142, 254);
+    }
+    75%{
+        background-color: aqua;
+    }
+}
+@keyframes failed {
+    0% ,100%{
+        background-color: rgb(242, 225, 92);
+    }
+    25%{
+        background-color: rgb(249, 89, 41);
+    }
+    75%{
+        background-color:rgb(242, 225, 92);
+    }
+}
+
+.char-name.correct{
+    background-color: rgb(4, 181, 75);
+    /* background-color: rgb(96, 221, 90); */
+    /* animation: success 800ms linear infinite; */
+}
+
+.char-name.false{
+    background-color: rgb(249, 41, 41);
+    /* background-color: rgb(96, 221, 90); */
+    /* animation: failed 800ms linear infinite; */
+}
+
+.game-info-container{
+    color: #fff;
+    display: flex;
+   justify-content: space-around;
+}
+
+.game-info {
+    margin:2vh 7vh;
+}
+
+.congrat-screen{
+    font-size: 4rem;
+    text-align: center;
+}
+
+.congrat-screen .play-again{
+    font-size: 2.7rem;
+  
+}
+
+.socre{
+    display: block;
+    margin: 6rem 0;
+    font-size: 2rem;
+}
+.socre-container{
+display: block;
+font-size: 2rem;
+margin: 4vh 0;
+}
+.socre-container.hidden{
+    display: none;
+    margin:4vh 0;
+}
+
+.star{
+    /* display: flex; */
+    color: rgb(131, 131, 131);
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-star.show{
+    color: rgb(255, 238, 52);
+    font-size: 2rem;
+    text-align: center;
+}
+
+#lose-game{
+    display: none;
+    margin: 4vh 0;;
+    font-size: 3rem;
+}
+
+#lose-game.show{
+    display: block;
+}
+
+.guess {
+    font-size: 2.2rem;
+    margin: 3vh 0;
+}
+
+
+@media screen and (max-width: 765px) {
+    
+    .container{
+    min-height: 30vh;
+    overflow: hidden;
+    }
+
+    .screen{
+        font-size: 4rem;
+    }
+
+    .game-container{
+        min-width: 400px;
+        height: 500;
+    }
+
+    .congrat-screen{
+        font-size: 3rem;
+        text-align: center;
+    }
+
+}

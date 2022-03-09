@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <title>Guess The Game</title>
+</head>
+
+<body>
+  <div class="container">
+ <div class="start-screen screen visible">
+   Play Game
+ </div>
+ <div class="win-screen screen">
+  you won
+  <div class="play-again">Play Again ?</div>
+</div>
+<div class="lose-screen screen">
+  you lose
+  <div class="play-again">Play Again ?</div>
+</div>
+<div class="game-over-screen screen">
+  Time Up
+  <div class="play-again">Play Again</div>
+</div>
+<div class="congrat-screen screen">
+  you beat it up !!
+  <div class="guess">Correct Guess : <span id="correct-guess">1</span></div>
+    <span class="socre-container">
+      your score is : <div id="socre"></div>
+      <div class="star">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+    </div>
+    </span>
+
+    <div id="lose-game">Oops , You lose
+      
+       </div>
+    <div class="play-again">Click here to restart</div>
+</div>
+  <div class="game-container">
+
+    <h1>Guess The Game</h1>
+    <div class="game-info-container">
+      <div class="game-info">
+     Time : <span id="time-remaining">100</span>
+      </div>
+      <div class="game-info">
+       Removed Squres  : <span id="Removed-squres"> 0</span>
+         </div>
+    </div>
+    <div class="char-pic">
+      <div id="image"/>
+
+  </div>
+      <div class="grid">
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <!-- <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div> -->
+        <!-- <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div> -->
+        <!-- <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div> -->
+        <!-- <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div> -->
+        <!-- <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div> -->
+        <!-- <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div> -->
+        <!-- <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div>
+        <div class="squre"> </div> -->
+      </div>
+    </div>
+    <div class="char-box">
+    <button id="1" class="char-name"></button>
+    <button id="2" class="char-name"></button>
+    <button id="3" class="char-name"></button>
+  </div>
+  </div>
+</div>
+  
+<script src="index.js" async type="module"></script> 
+</body>
+
+</html>
