@@ -1,48 +1,10 @@
 import AudioController from './audioGame.js'
-
-let imagesSrc = [
-    {
-        id: 0,
-        src: './images/Assassins-creed-valhalla.jpg',
-        charName:"Assassin's creed valhalla"
-    },
-    {
-        id: 1,
-        src: './images/batman.jpeg',
-        charName: 'Batman'
-    },
-    {
-        id: 2,
-        src: './images/battlefield.jpeg',
-        charName: 'battlefield'
-    },
-    {
-        id: 3,
-        src: './images/resident-evil.jpeg',
-        charName: 'Resident Evil'
-    },
-    {
-        id: 4,
-        src: './images/farcry5.jpg',
-        charName: 'Far Cry 3'
-    },
-    {
-        id: 5,
-        src: './images/super-mario-bros.jpg',
-        charName: 'Super Mario Bros'
-    },
-    {
-        id: 6,
-        src: './images/horizon.jpeg',
-        charName: 'Horizon'
-    },
-    {
-        id: 6,
-        src: './images/tomb-raider.jpeg',
-        charName: 'Tomb Raider'
-    }
-]
-let charNames = ["Assassin's creed valhalla", 'Batman', 'battlefield', 'Resident Evil', 'Far Cry 3' ,'Super Mario Bros','Horizon','Tomb Raider']
+import {
+    imagesSrc
+} from './gameData.js'
+import {
+    charNames
+} from './gameData.js';
 
 
 class GuessWho {
@@ -92,7 +54,7 @@ class GuessWho {
         if (this.images.length === 0) this.endTheGame()
 
         randIndex = Math.floor(Math.random() * this.images.length)
-   
+
         let img = new Image(310, 460);
         img.src = this.images[randIndex].src
         img.alt = randIndex;
@@ -137,24 +99,24 @@ class GuessWho {
         document.getElementById('image').removeChild(document.querySelector('.img'))
     }
 
+          //to hide the squres when clicked
     removeSqures(squre) {
-        //now i hide the squres
         squre.classList.add('hidden')
         this.audioController.flipCardSound()
     }
 
+            // to count the squres that has been removed
     countSqr() {
-
         this.totalClick++
         this.removedSqr.innerText = this.totalClick;
     }
 
+    // to count the number of squers that removed per picture
     theScore() {
-        let sqrNum = parseInt(this.removedSqr.innerText)
         //    convert the innertext to a number then push it to new array
+        let sqrNum = parseInt(this.removedSqr.innerText)
+        // then push it to an array
         this.sum.push(sqrNum)
-        console.log(this.sum, 'this.sum')
-        console.log(sqrNum, 'sg')
     }
 
     checkOfBtnMatchThePic(btn) {
@@ -163,10 +125,12 @@ class GuessWho {
             btn.style.cursor = 'not-allowed';
             btn.style.pointerEvents = "none";
         })
-        this.theScore();
-        console.log(this.images, this.usedImages, this.getTheCorrectAnswer())
+        this.theScore(); // to push the amount of removed squres
+
+        // to check if the chosen answer is matche the correct answer
         if (btn.innerText === this.getTheCorrectAnswer()) {
             btn.classList.add('correct')
+            // to remove the whole squers when the player chose the answer
             this.squres.forEach(sqr => sqr.classList.add("hidden"))
             this.winGame()
             this.numOfWins.push('win')
@@ -192,10 +156,9 @@ class GuessWho {
         }, 1000);
     }
 
+    // to calculate the sum of the array of removed squres
     calculateScore() {
-
         let sum = this.sum.reduce((a, c) => a + c, 1)
-
         let i = 0;
         console.log(sum, 'sum', 'calc')
 
@@ -217,7 +180,6 @@ class GuessWho {
         } else if (sum > 30 && sum <= 40) {
             do {
                 this.stars[i].classList.add('show')
-                // console.log(stars[i] ,'do')
                 i++
             } while (i < 2)
         } else {
@@ -229,6 +191,7 @@ class GuessWho {
 
     }
 
+    // to count the number of win and loses 
     countNumOfWins() {
         let count = 0;
         this.numOfWins.forEach(win => {
@@ -238,45 +201,44 @@ class GuessWho {
     }
 
     endTheGame() {
-
         this.audioController.stop()
-        document.querySelector('.congrat-screen').style.pointerEvents ="none"
+        // to prevent the player of clcicking before the music finish and to give som time to see the result
+        document.querySelector('.congrat-screen').style.pointerEvents = "none"
         document.getElementById('correct-guess').innerText = this.countNumOfWins()
         this.reset()
+
         if (this.countNumOfWins() >= this.numOfWins.length / 2) {
             this.audioController.endGameSound()
             this.calculateScore()
             document.querySelector('.congrat-screen').classList.add('visible')
-     
-
         } else {
             this.audioController.failSound()
             document.querySelector('.socre-container').classList.add('hidden')
             document.querySelector('.congrat-screen').classList.add('visible')
             document.getElementById('lose-game').classList.add('show')
-   
+
         }
-        setTimeout(()=>{
+        // to alloaw the player to start a game
+        setTimeout(() => {
             document.querySelector('.congrat-screen').style.pointerEvents = 'auto'
-        },4000)
-    
+        }, 4000)
+
         this.sum = []
         this.numOfWins = [];
+        // to fill the array again with the data
         if (this.images.length === 0) {
             for (let i = 0; i < this.usedImages.length; i++) {
                 this.images.push(this.usedImages[i])
             }
             this.usedImages = []
         }
-
         clearInterval(this.timer)
     }
 
     winGame() {
-     
         this.audioController.winSound()
         clearInterval(this.timer)
-     
+
         if (this.images.length <= 1) {
             document.querySelector('.win-screen').classList.add('visible')
             document.querySelector('.win-screen').classList.add('freeze')
@@ -326,6 +288,7 @@ class GuessWho {
         }
     }
 
+    // generating random names of game and avoiding repeated name
     nameGenerator() {
 
         let excludedIndex = document.querySelector('.Correct');
@@ -380,7 +343,7 @@ const ready = () => {
     })
 }
 
-
+// to load all the html elements before js
 if (document.readyState === 'loading') {
     document.addEventListener("DOMContentLoaded", ready())
 } else {
