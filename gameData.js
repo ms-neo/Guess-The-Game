@@ -35,7 +35,7 @@ export const imagesSrc = [
         charName: 'Horizon'
     },
     {
-        id: 6,
+        id: 7,
         src: './images/tomb-raider.jpeg',
         charName: 'Tomb Raider'
     }

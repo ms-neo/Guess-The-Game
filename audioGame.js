@@ -9,7 +9,7 @@ export default class AudioController {
       this.winAudio = new Audio('audio/win.wav');
       this.failAudio = new Audio('audio/fail.wav');
       this.bgMusic.volume=0.1;
-      this.loseAudio.volume=.2;
+      this.loseAudio.volume=.3;
       this.bgMusic.loop =true;
     }
 
